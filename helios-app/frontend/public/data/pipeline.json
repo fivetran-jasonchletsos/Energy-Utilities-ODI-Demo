@@ -1,0 +1,151 @@
+{
+  "connectors": [
+    {
+      "name": "SAP IS-U (CIS + billing)",
+      "mechanism": "Fivetran",
+      "source": "SAP IS-U",
+      "destination": "Snowflake / Iceberg",
+      "tables": 142,
+      "rows_24h": 4820000,
+      "status": "Healthy",
+      "last_sync": "2026-05-21T12:42:00Z",
+      "lag_minutes": 18
+    },
+    {
+      "name": "OSIsoft PI System (SCADA)",
+      "mechanism": "Fivetran",
+      "source": "OSIsoft PI",
+      "destination": "Snowflake / Iceberg",
+      "tables": 38,
+      "rows_24h": 41200000,
+      "status": "Healthy",
+      "last_sync": "2026-05-21T12:58:00Z",
+      "lag_minutes": 2
+    },
+    {
+      "name": "Itron AMI smart meters",
+      "mechanism": "Fivetran",
+      "source": "Itron OpenWay",
+      "destination": "Snowflake / Iceberg",
+      "tables": 24,
+      "rows_24h": 57840000,
+      "status": "Healthy",
+      "last_sync": "2026-05-21T12:55:00Z",
+      "lag_minutes": 5
+    },
+    {
+      "name": "Salesforce (commercial CRM)",
+      "mechanism": "Fivetran",
+      "source": "Salesforce",
+      "destination": "Snowflake / Iceberg",
+      "tables": 86,
+      "rows_24h": 98400,
+      "status": "Healthy",
+      "last_sync": "2026-05-21T12:50:00Z",
+      "lag_minutes": 10
+    },
+    {
+      "name": "GIS asset locations (Esri)",
+      "mechanism": "Fivetran",
+      "source": "Esri ArcGIS",
+      "destination": "Snowflake / Iceberg",
+      "tables": 16,
+      "rows_24h": 124800,
+      "status": "Healthy",
+      "last_sync": "2026-05-21T11:30:00Z",
+      "lag_minutes": 90
+    },
+    {
+      "name": "NOAA weather + forecast",
+      "mechanism": "Fivetran",
+      "source": "NOAA NDFD",
+      "destination": "Snowflake / Iceberg",
+      "tables": 8,
+      "rows_24h": 486000,
+      "status": "Degraded",
+      "last_sync": "2026-05-21T11:48:00Z",
+      "lag_minutes": 72
+    },
+    {
+      "name": "Maximo work orders",
+      "mechanism": "Fivetran",
+      "source": "IBM Maximo",
+      "destination": "Snowflake / Iceberg",
+      "tables": 41,
+      "rows_24h": 72400,
+      "status": "Healthy",
+      "last_sync": "2026-05-21T12:30:00Z",
+      "lag_minutes": 30
+    }
+  ],
+  "layers": [
+    {
+      "layer": "Bronze",
+      "description": "Raw landings from Fivetran",
+      "tables": 355,
+      "rows": 18420000000,
+      "storage_tb": 142.0,
+      "freshness_min": 10
+    },
+    {
+      "layer": "Silver",
+      "description": "Conformed, deduped, joined entities",
+      "tables": 128,
+      "rows": 9840000000,
+      "storage_tb": 68.4,
+      "freshness_min": 35
+    },
+    {
+      "layer": "Gold",
+      "description": "Operational marts \u2014 grid, outages, assets, ESG",
+      "tables": 42,
+      "rows": 420800000,
+      "storage_tb": 8.6,
+      "freshness_min": 60
+    },
+    {
+      "layer": "Platinum",
+      "description": "Agent-facing semantic + governed regulatory cubes",
+      "tables": 16,
+      "rows": 18400000,
+      "storage_tb": 0.9,
+      "freshness_min": 90
+    }
+  ],
+  "incidents_24h": [
+    {
+      "time": "2026-05-21T11:48:00Z",
+      "connector": "NOAA weather + forecast",
+      "severity": "Warning",
+      "description": "Upstream NDFD endpoint 502 \u2014 auto-retry succeeded, 72m lag",
+      "resolved": true
+    },
+    {
+      "time": "2026-05-21T03:14:00Z",
+      "connector": "OSIsoft PI System",
+      "severity": "Info",
+      "description": "Schema evolution: added pt_quality_extended column",
+      "resolved": true
+    }
+  ],
+  "failure_simulator": {
+    "description": "Inject a synthetic upstream failure on the AMI feed to observe lag, alerting, and downstream model behavior on Snowflake.",
+    "scenarios": [
+      {
+        "name": "AMI endpoint timeout",
+        "expected_alert": "Connector lag > 30m",
+        "downstream": "Silver int_meter_intervals freshness fails dbt source freshness check"
+      },
+      {
+        "name": "PI tag rename (schema drift)",
+        "expected_alert": "Fivetran schema change notification",
+        "downstream": "Gold mart_generation_actuals continues \u2014 schema evolution propagates via Iceberg"
+      },
+      {
+        "name": "Salesforce API throttle",
+        "expected_alert": "Connector status Degraded",
+        "downstream": "CIS-to-CRM join in mart_industrial_accounts holds last-good snapshot"
+      }
+    ]
+  }
+}

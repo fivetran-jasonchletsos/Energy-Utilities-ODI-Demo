@@ -1,0 +1,207 @@
+@import "tailwindcss";
+
+/*
+ * Helios Grid — SCADA control-room design system.
+ *
+ * Deep navy + electric cyan + amber alert. Inter for body, JetBrains Mono
+ * for readouts and gauges. Numerals tabular by default. The chrome reads
+ * like an ops console; ODI lives in the architecture, not the brand.
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+:root {
+  --navy-deep:   #0a1f3a;
+  --navy:        #112d52;
+  --navy-soft:   #1e4380;
+  --cyan:        #06b6d4;
+  --cyan-bright: #22d3ee;
+  --cyan-dim:    #0e7490;
+  --amber:       #f59e0b;
+  --amber-bright:#fbbf24;
+  --amber-dim:   #b45309;
+  --paper:       #f5f5f0;
+  --paper-deep:  #ecebe2;
+  --card:        #ffffff;
+  --hairline:    #d8d6c8;
+  --hairline-soft: #e8e6db;
+  --ink-strong:  #0b1220;
+  --ink:         #1f2937;
+  --ink-muted:   #4b5563;
+  --ink-soft:    #6b7280;
+
+  --ok:          #15803d;
+  --ok-bg:       #f0fdf4;
+  --warn:        #b45309;
+  --warn-bg:     #fffbeb;
+  --crit:        #b91c1c;
+  --crit-bg:     #fef2f2;
+
+  --bronze:      #b45309;
+  --bronze-bg:   #fff7ed;
+  --silver:      #475569;
+  --silver-bg:   #f1f5f9;
+  --gold-layer:  #0891b2;
+  --gold-layer-bg:#ecfeff;
+}
+
+@theme {
+  --color-navy-50:  #eef3fa;
+  --color-navy-100: #d6e1ef;
+  --color-navy-200: #adc3df;
+  --color-navy-700: #112d52;
+  --color-navy-800: #0a1f3a;
+  --color-navy-900: #051428;
+
+  --color-cyan-400: #22d3ee;
+  --color-cyan-500: #06b6d4;
+  --color-cyan-700: #0e7490;
+
+  --color-amber-400: #fbbf24;
+  --color-amber-500: #f59e0b;
+  --color-amber-700: #b45309;
+
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+html, body {
+  background-color: var(--paper);
+  color: var(--ink);
+  font-family: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-feature-settings: "ss01", "cv11";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root { min-height: 100vh; }
+
+h1, h2, h3 { color: var(--ink-strong); letter-spacing: -0.012em; }
+
+.scada-rail {
+  height: 2px;
+  background: linear-gradient(90deg, var(--cyan-dim) 0%, var(--cyan-bright) 50%, var(--cyan-dim) 100%);
+}
+
+.eyebrow {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--cyan-dim);
+}
+.eyebrow-light {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--cyan-bright);
+}
+
+.ops-card {
+  background: var(--card);
+  border: 1px solid var(--hairline);
+  border-radius: 0.375rem;
+  box-shadow: 0 1px 2px rgba(10, 31, 58, 0.05);
+}
+.ops-card-header {
+  padding: 0.875rem 1rem;
+  border-bottom: 1px solid var(--hairline-soft);
+  background: linear-gradient(180deg, #ffffff 0%, #f8f8f1 100%);
+}
+
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.125rem 0.625rem;
+  border-radius: 9999px;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  border: 1px solid transparent;
+}
+.status-pill::before {
+  content: "";
+  display: inline-block;
+  width: 0.4rem;
+  height: 0.4rem;
+  border-radius: 9999px;
+  background: currentColor;
+}
+.status-pill.ok    { background: var(--ok-bg);   color: var(--ok);   border-color: #bbf7d0; }
+.status-pill.warn  { background: var(--warn-bg); color: var(--warn); border-color: #fde68a; }
+.status-pill.crit  { background: var(--crit-bg); color: var(--crit); border-color: #fecaca; }
+.status-pill.cyan  { background: #ecfeff;        color: var(--cyan-dim); border-color: #a5f3fc; }
+.status-pill.neutral{background: var(--paper-deep); color: var(--ink-muted); border-color: var(--hairline); }
+
+.layer-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.1875rem 0.625rem;
+  border-radius: 0.25rem;
+  font-size: 0.625rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-family: "JetBrains Mono", monospace;
+}
+.layer-chip.bronze { background: var(--bronze-bg); color: var(--bronze); border: 1px solid #fed7aa; }
+.layer-chip.silver { background: var(--silver-bg); color: var(--silver); border: 1px solid #e2e8f0; }
+.layer-chip.gold   { background: var(--gold-layer-bg); color: var(--gold-layer); border: 1px solid #a5f3fc; }
+.layer-chip.cyan   { background: #ecfeff; color: var(--cyan-dim); border: 1px solid #a5f3fc; }
+
+.kpi-tile {
+  background: var(--card);
+  border: 1px solid var(--hairline);
+  border-radius: 0.375rem;
+  padding: 1rem 1.125rem;
+}
+.kpi-label {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ink-soft);
+}
+.kpi-value {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: var(--ink-strong);
+  line-height: 1.1;
+  margin-top: 0.25rem;
+  font-variant-numeric: tabular-nums;
+}
+.kpi-sub {
+  font-size: 0.75rem;
+  color: var(--ink-soft);
+  margin-top: 0.125rem;
+}
+
+.scada-tile {
+  background: var(--navy-deep);
+  color: #e2e8f0;
+  border: 1px solid var(--navy-soft);
+  border-radius: 0.375rem;
+  padding: 1rem 1.125rem;
+}
+.scada-tile .kpi-label { color: #94a3b8; }
+.scada-tile .kpi-value { color: var(--cyan-bright); }
+.scada-tile .kpi-sub   { color: #94a3b8; }
+
+.tabular { font-variant-numeric: tabular-nums; }
+.mono    { font-family: "JetBrains Mono", monospace; }
+
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: var(--paper-deep); }
+::-webkit-scrollbar-thumb { background: #b8b5a0; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #918d76; }
+
+*:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 2px;
+  border-radius: 3px;
+}

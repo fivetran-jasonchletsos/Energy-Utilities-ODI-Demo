@@ -1,0 +1,50 @@
+{
+  "as_of": "2026-05-21T13:00:00Z",
+  "load_mw": 6842,
+  "capacity_mw": 9450,
+  "reserve_margin_pct": 14.8,
+  "frequency_hz": 59.998,
+  "voltage_pu_avg": 1.012,
+  "ace_mw": -3.2,
+  "generation_mix_mw": [
+    { "source": "Natural gas",    "mw": 3120, "color": "#94a3b8" },
+    { "source": "Solar",          "mw": 1640, "color": "#fbbf24" },
+    { "source": "Wind",           "mw":  520, "color": "#22d3ee" },
+    { "source": "Coal (retiring)","mw":  410, "color": "#475569" },
+    { "source": "Hydro",          "mw":  180, "color": "#3b82f6" },
+    { "source": "Nuclear (PPA)",  "mw":  650, "color": "#a78bfa" },
+    { "source": "Imports (CAISO)","mw":  322, "color": "#f97316" }
+  ],
+  "load_curve_24h": [
+    { "hour": "00:00", "load": 5180, "forecast": 5210 },
+    { "hour": "01:00", "load": 4920, "forecast": 4960 },
+    { "hour": "02:00", "load": 4790, "forecast": 4820 },
+    { "hour": "03:00", "load": 4710, "forecast": 4740 },
+    { "hour": "04:00", "load": 4760, "forecast": 4780 },
+    { "hour": "05:00", "load": 4910, "forecast": 4930 },
+    { "hour": "06:00", "load": 5240, "forecast": 5260 },
+    { "hour": "07:00", "load": 5680, "forecast": 5710 },
+    { "hour": "08:00", "load": 5980, "forecast": 6020 },
+    { "hour": "09:00", "load": 6210, "forecast": 6240 },
+    { "hour": "10:00", "load": 6420, "forecast": 6480 },
+    { "hour": "11:00", "load": 6580, "forecast": 6640 },
+    { "hour": "12:00", "load": 6720, "forecast": 6790 },
+    { "hour": "13:00", "load": 6842, "forecast": 6910 },
+    { "hour": "14:00", "load": null, "forecast": 7080 },
+    { "hour": "15:00", "load": null, "forecast": 7240 },
+    { "hour": "16:00", "load": null, "forecast": 7380 },
+    { "hour": "17:00", "load": null, "forecast": 7460 },
+    { "hour": "18:00", "load": null, "forecast": 7510 },
+    { "hour": "19:00", "load": null, "forecast": 7280 },
+    { "hour": "20:00", "load": null, "forecast": 6940 },
+    { "hour": "21:00", "load": null, "forecast": 6520 },
+    { "hour": "22:00", "load": null, "forecast": 6080 },
+    { "hour": "23:00", "load": null, "forecast": 5640 }
+  ],
+  "balancing_authority": "WALC (Western Area Lower Colorado synthetic)",
+  "interties_mw": [
+    { "name": "Palo Verde 500kV", "mw":  180 },
+    { "name": "Mead 500kV",        "mw":   90 },
+    { "name": "Four Corners 345kV","mw":   52 }
+  ]
+}

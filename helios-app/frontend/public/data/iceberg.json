@@ -1,0 +1,108 @@
+{
+  "tables": [
+    {
+      "database": "helios_bronze",
+      "table": "raw_sap_isu_billing",
+      "rows": 1840000000,
+      "size_gb": 84.0,
+      "format": "Iceberg v2",
+      "last_updated": "2026-05-21T12:42:00Z"
+    },
+    {
+      "database": "helios_bronze",
+      "table": "raw_pi_scada_intervals",
+      "rows": 14200000000,
+      "size_gb": 620.0,
+      "format": "Iceberg v2",
+      "last_updated": "2026-05-21T12:58:00Z"
+    },
+    {
+      "database": "helios_bronze",
+      "table": "raw_ami_meter_intervals",
+      "rows": 16840000000,
+      "size_gb": 720.0,
+      "format": "Iceberg v2",
+      "last_updated": "2026-05-21T12:55:00Z"
+    },
+    {
+      "database": "helios_silver",
+      "table": "int_grid_load_5min",
+      "rows": 2460000000,
+      "size_gb": 108.0,
+      "format": "Iceberg v2",
+      "last_updated": "2026-05-21T12:58:00Z"
+    },
+    {
+      "database": "helios_silver",
+      "table": "int_meter_intervals_hourly",
+      "rows": 1840000000,
+      "size_gb": 96.0,
+      "format": "Iceberg v2",
+      "last_updated": "2026-05-21T12:55:00Z"
+    },
+    {
+      "database": "helios_silver",
+      "table": "int_asset_health",
+      "rows": 418000,
+      "size_gb": 2.4,
+      "format": "Iceberg v2",
+      "last_updated": "2026-05-21T12:30:00Z"
+    },
+    {
+      "database": "helios_gold",
+      "table": "mart_grid_status",
+      "rows": 8640,
+      "size_gb": 0.1,
+      "format": "Iceberg v2",
+      "last_updated": "2026-05-21T13:00:00Z"
+    },
+    {
+      "database": "helios_gold",
+      "table": "mart_active_outages",
+      "rows": 18240,
+      "size_gb": 0.2,
+      "format": "Iceberg v2",
+      "last_updated": "2026-05-21T13:00:00Z"
+    },
+    {
+      "database": "helios_gold",
+      "table": "mart_renewables_hourly",
+      "rows": 4820000,
+      "size_gb": 8.4,
+      "format": "Iceberg v2",
+      "last_updated": "2026-05-21T13:00:00Z"
+    },
+    {
+      "database": "helios_gold",
+      "table": "mart_emissions_quarterly",
+      "rows": 4800,
+      "size_gb": 0.1,
+      "format": "Iceberg v2",
+      "last_updated": "2026-05-21T03:00:00Z"
+    },
+    {
+      "database": "helios_gold",
+      "table": "mart_industrial_accounts",
+      "rows": 27420,
+      "size_gb": 0.4,
+      "format": "Iceberg v2",
+      "last_updated": "2026-05-21T03:00:00Z"
+    },
+    {
+      "database": "helios_platinum",
+      "table": "agent_grid_state",
+      "rows": 8640,
+      "size_gb": 0.1,
+      "format": "Iceberg v2",
+      "last_updated": "2026-05-21T13:00:00Z"
+    },
+    {
+      "database": "helios_platinum",
+      "table": "agent_outage_predictions",
+      "rows": 240000,
+      "size_gb": 0.6,
+      "format": "Iceberg v2",
+      "last_updated": "2026-05-21T13:00:00Z"
+    }
+  ]
+}

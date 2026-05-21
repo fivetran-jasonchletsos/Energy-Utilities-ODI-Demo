@@ -1,0 +1,208 @@
+{
+  "scope": {
+    "scope1_q": [
+      {
+        "quarter": "2024-Q3",
+        "tonnes_co2e": 2480000
+      },
+      {
+        "quarter": "2024-Q4",
+        "tonnes_co2e": 2620000
+      },
+      {
+        "quarter": "2025-Q1",
+        "tonnes_co2e": 2710000
+      },
+      {
+        "quarter": "2025-Q2",
+        "tonnes_co2e": 2640000
+      },
+      {
+        "quarter": "2025-Q3",
+        "tonnes_co2e": 2420000
+      },
+      {
+        "quarter": "2025-Q4",
+        "tonnes_co2e": 2330000
+      },
+      {
+        "quarter": "2026-Q1",
+        "tonnes_co2e": 2210000
+      }
+    ],
+    "scope2_q": [
+      {
+        "quarter": "2024-Q3",
+        "tonnes_co2e": 140000
+      },
+      {
+        "quarter": "2024-Q4",
+        "tonnes_co2e": 138000
+      },
+      {
+        "quarter": "2025-Q1",
+        "tonnes_co2e": 142000
+      },
+      {
+        "quarter": "2025-Q2",
+        "tonnes_co2e": 136000
+      },
+      {
+        "quarter": "2025-Q3",
+        "tonnes_co2e": 128000
+      },
+      {
+        "quarter": "2025-Q4",
+        "tonnes_co2e": 124000
+      },
+      {
+        "quarter": "2026-Q1",
+        "tonnes_co2e": 120000
+      }
+    ]
+  },
+  "renewables_pct_q": [
+    {
+      "quarter": "2024-Q3",
+      "pct": 21.4
+    },
+    {
+      "quarter": "2024-Q4",
+      "pct": 22.8
+    },
+    {
+      "quarter": "2025-Q1",
+      "pct": 24.1
+    },
+    {
+      "quarter": "2025-Q2",
+      "pct": 25.6
+    },
+    {
+      "quarter": "2025-Q3",
+      "pct": 27.2
+    },
+    {
+      "quarter": "2025-Q4",
+      "pct": 29.4
+    },
+    {
+      "quarter": "2026-Q1",
+      "pct": 31.6
+    }
+  ],
+  "emissions_intensity_lb_per_mwh": [
+    {
+      "quarter": "2024-Q3",
+      "lb_per_mwh": 612
+    },
+    {
+      "quarter": "2024-Q4",
+      "lb_per_mwh": 598
+    },
+    {
+      "quarter": "2025-Q1",
+      "lb_per_mwh": 572
+    },
+    {
+      "quarter": "2025-Q2",
+      "lb_per_mwh": 548
+    },
+    {
+      "quarter": "2025-Q3",
+      "lb_per_mwh": 502
+    },
+    {
+      "quarter": "2025-Q4",
+      "lb_per_mwh": 462
+    },
+    {
+      "quarter": "2026-Q1",
+      "lb_per_mwh": 412
+    }
+  ],
+  "water_use_by_site_kgal": [
+    {
+      "site": "Coronado Gas CC",
+      "kgal_q": 184000,
+      "process": "Combined-cycle cooling"
+    },
+    {
+      "site": "Sandstone Coal",
+      "kgal_q": 248000,
+      "process": "Once-through cooling"
+    },
+    {
+      "site": "Pinon Peaker",
+      "kgal_q": 18400,
+      "process": "Simple cycle"
+    },
+    {
+      "site": "Sonora Solar 1",
+      "kgal_q": 4800,
+      "process": "Panel washing"
+    },
+    {
+      "site": "Sonora Solar 2",
+      "kgal_q": 4200,
+      "process": "Panel washing"
+    },
+    {
+      "site": "Mojave Edge",
+      "kgal_q": 3600,
+      "process": "Panel washing"
+    }
+  ],
+  "regulatory_filings": [
+    {
+      "agency": "Arizona Corp Commission",
+      "filing": "Annual reliability report (Docket E-01345A-26-0142)",
+      "due": "2026-06-30",
+      "status": "Draft ready"
+    },
+    {
+      "agency": "NM PRC",
+      "filing": "Integrated resource plan update",
+      "due": "2026-07-15",
+      "status": "In progress"
+    },
+    {
+      "agency": "EPA",
+      "filing": "GHG reporting (Subpart D)",
+      "due": "2026-03-31",
+      "status": "Filed"
+    },
+    {
+      "agency": "NV PUC",
+      "filing": "Renewable portfolio standard compliance",
+      "due": "2026-09-30",
+      "status": "On track"
+    },
+    {
+      "agency": "FERC",
+      "filing": "Form 1 annual report",
+      "due": "2026-04-30",
+      "status": "Filed"
+    }
+  ],
+  "rps_targets": [
+    {
+      "state": "AZ",
+      "current_pct": 33.4,
+      "target_pct": 35.0,
+      "target_year": 2027
+    },
+    {
+      "state": "NM",
+      "current_pct": 29.8,
+      "target_pct": 50.0,
+      "target_year": 2030
+    },
+    {
+      "state": "NV",
+      "current_pct": 26.2,
+      "target_pct": 50.0,
+      "target_year": 2030
+    }
+  ]
+}

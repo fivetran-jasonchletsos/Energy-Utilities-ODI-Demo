@@ -1,0 +1,25 @@
+{
+  "generated_at": "2026-05-21T13:00:00Z",
+  "snapshot_label": "2026-05-21 06:00 MST",
+  "service_area": {
+    "states": ["AZ", "NM", "Southern NV"],
+    "customers": 2412480,
+    "peak_capacity_mw": 9450
+  },
+  "kpis": [
+    { "key": "customers",        "label": "Customers served",     "value": "2.41M",   "sub": "AZ, NM, S. Nevada" },
+    { "key": "current_load",     "label": "Current load",         "value": "6,842 MW","sub": "72.4% of summer peak" },
+    { "key": "renewables_share", "label": "Renewables (rolling 24h)", "value": "31.6%", "sub": "Target 30% by 2027" },
+    { "key": "active_outages",   "label": "Active outages",       "value": "23",      "sub": "11,420 customers impacted" },
+    { "key": "reserve_margin",   "label": "Reserve margin",       "value": "14.8%",   "sub": "NERC min 13.0%" },
+    { "key": "saidi_ytd",        "label": "SAIDI YTD",            "value": "78.4 min","sub": "Target ≤ 95 min" },
+    { "key": "co2_intensity",    "label": "CO2 intensity",        "value": "412 lb/MWh","sub": "−9.3% YoY" },
+    { "key": "ami_meters",       "label": "AMI meters reporting", "value": "99.62%",  "sub": "2.40M of 2.41M" }
+  ],
+  "headlines": [
+    { "severity": "crit", "title": "Distribution feeder F-2147 (Tucson NW) out — vegetation contact",   "detail": "1,840 customers impacted, ETR 19:15 MST. Crew dispatched 14:22 MST." },
+    { "severity": "warn", "title": "Reserve margin tightening — heat wave forecast 6/2",                "detail": "Load forecast 9,180 MW vs 9,450 MW capacity. Demand response pre-stage approved." },
+    { "severity": "warn", "title": "Solar curtailment 142 MWh today on Sonora 1 — congestion on 345kV", "detail": "TSR-7 transmission limit. Curtailment cost ~$3,840." },
+    { "severity": "ok",   "title": "Wind asset Mesa Wind 3 returned from scheduled inspection",         "detail": "78 MW back online at 11:48 MST. Inspection cleared." }
+  ]
+}

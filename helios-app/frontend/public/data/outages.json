@@ -1,0 +1,45 @@
+{
+  "active": [
+    { "id": "OMS-20264821", "feeder": "F-2147", "area": "Tucson NW",       "customers": 1840, "cause": "Vegetation",  "started": "2026-05-21T14:22:00Z", "etr": "2026-05-22T02:15:00Z", "crew": "Crew T-12", "predicted_minutes": 712, "ai_predicted_minutes": 645 },
+    { "id": "OMS-20264820", "feeder": "F-1108", "area": "Phoenix W",       "customers": 2380, "cause": "Equipment",   "started": "2026-05-21T13:46:00Z", "etr": "2026-05-21T22:30:00Z", "crew": "Crew P-04", "predicted_minutes": 524, "ai_predicted_minutes": 488 },
+    { "id": "OMS-20264819", "feeder": "F-3041", "area": "Mesa S",          "customers":  710, "cause": "Equipment",   "started": "2026-05-21T13:18:00Z", "etr": "2026-05-21T20:45:00Z", "crew": "Crew M-08", "predicted_minutes": 447, "ai_predicted_minutes": 410 },
+    { "id": "OMS-20264818", "feeder": "F-5582", "area": "Albuquerque NE",  "customers": 1620, "cause": "Weather",     "started": "2026-05-21T12:55:00Z", "etr": "2026-05-21T19:30:00Z", "crew": "Crew A-02", "predicted_minutes": 395, "ai_predicted_minutes": 360 },
+    { "id": "OMS-20264817", "feeder": "F-6071", "area": "Santa Fe",        "customers":  420, "cause": "Weather",     "started": "2026-05-21T12:30:00Z", "etr": "2026-05-21T18:30:00Z", "crew": "Crew A-07", "predicted_minutes": 360, "ai_predicted_minutes": 330 },
+    { "id": "OMS-20264816", "feeder": "F-2298", "area": "Tucson E",        "customers":  280, "cause": "Vegetation",  "started": "2026-05-21T11:14:00Z", "etr": "2026-05-21T17:45:00Z", "crew": "Crew T-04", "predicted_minutes": 391, "ai_predicted_minutes": 355 },
+    { "id": "OMS-20264815", "feeder": "F-1182", "area": "Phoenix N",       "customers":  165, "cause": "Equipment",   "started": "2026-05-21T11:08:00Z", "etr": "2026-05-21T16:30:00Z", "crew": "Crew P-11", "predicted_minutes": 322, "ai_predicted_minutes": 295 },
+    { "id": "OMS-20264814", "feeder": "F-2401", "area": "Tucson SW",       "customers":  920, "cause": "Equipment",   "started": "2026-05-21T10:51:00Z", "etr": "2026-05-21T18:00:00Z", "crew": "Crew T-09", "predicted_minutes": 429, "ai_predicted_minutes": 395 },
+    { "id": "OMS-20264813", "feeder": "F-3309", "area": "Mesa N",          "customers":  640, "cause": "Animal",      "started": "2026-05-21T10:32:00Z", "etr": "2026-05-21T15:30:00Z", "crew": "Crew M-12", "predicted_minutes": 298, "ai_predicted_minutes": 270 },
+    { "id": "OMS-20264812", "feeder": "F-7019", "area": "Henderson NV",    "customers":  390, "cause": "Equipment",   "started": "2026-05-21T10:18:00Z", "etr": "2026-05-21T15:00:00Z", "crew": "Crew V-03", "predicted_minutes": 282, "ai_predicted_minutes": 250 },
+    { "id": "OMS-20264811", "feeder": "F-4471", "area": "Las Cruces",      "customers":  210, "cause": "Weather",     "started": "2026-05-21T09:45:00Z", "etr": "2026-05-21T14:30:00Z", "crew": "Crew N-06", "predicted_minutes": 285, "ai_predicted_minutes": 260 },
+    { "id": "OMS-20264810", "feeder": "F-1098", "area": "Phoenix S",       "customers":  140, "cause": "Equipment",   "started": "2026-05-21T09:12:00Z", "etr": "2026-05-21T14:00:00Z", "crew": "Crew P-07", "predicted_minutes": 288, "ai_predicted_minutes": 265 },
+    { "id": "OMS-20264809", "feeder": "F-5611", "area": "Albuquerque W",   "customers":  315, "cause": "Vegetation",  "started": "2026-05-21T08:47:00Z", "etr": "2026-05-21T13:30:00Z", "crew": "Crew A-09", "predicted_minutes": 283, "ai_predicted_minutes": 258 },
+    { "id": "OMS-20264808", "feeder": "F-2510", "area": "Tucson N",        "customers":   95, "cause": "Equipment",   "started": "2026-05-21T08:30:00Z", "etr": "2026-05-21T13:00:00Z", "crew": "Crew T-15", "predicted_minutes": 270, "ai_predicted_minutes": 245 },
+    { "id": "OMS-20264807", "feeder": "F-1147", "area": "Phoenix E",       "customers":  180, "cause": "Planned",     "started": "2026-05-21T07:00:00Z", "etr": "2026-05-21T13:00:00Z", "crew": "Crew P-02", "predicted_minutes": 360, "ai_predicted_minutes": 360 }
+  ],
+  "cause_breakdown_ytd": [
+    { "cause": "Weather",    "count": 412, "color": "#06b6d4" },
+    { "cause": "Vegetation", "count": 268, "color": "#16a34a" },
+    { "cause": "Equipment",  "count": 521, "color": "#94a3b8" },
+    { "cause": "Animal",     "count":  84, "color": "#a16207" },
+    { "cause": "Planned",    "count": 197, "color": "#3b82f6" }
+  ],
+  "reliability_metrics": {
+    "saidi_ytd_min":   78.4,
+    "saidi_target":    95.0,
+    "saifi_ytd":        0.81,
+    "saifi_target":     1.05,
+    "caidi_ytd_min":   96.8,
+    "caidi_target":   110.0
+  },
+  "saidi_trend": [
+    { "month": "2025-09", "saidi": 9.2 },
+    { "month": "2025-10", "saidi": 8.4 },
+    { "month": "2025-11", "saidi": 7.1 },
+    { "month": "2025-12", "saidi": 8.9 },
+    { "month": "2026-01", "saidi": 11.6 },
+    { "month": "2026-02", "saidi": 14.8 },
+    { "month": "2026-03", "saidi": 12.1 },
+    { "month": "2026-04", "saidi": 12.4 },
+    { "month": "2026-05", "saidi": 9.7 }
+  ]
+}

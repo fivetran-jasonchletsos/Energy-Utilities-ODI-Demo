@@ -1,0 +1,278 @@
+{
+  "segments": [
+    {
+      "segment": "Residential",
+      "accounts": 2186420,
+      "pct": 90.6,
+      "annual_gwh": 18420
+    },
+    {
+      "segment": "Commercial",
+      "accounts": 198640,
+      "pct": 8.2,
+      "annual_gwh": 11280
+    },
+    {
+      "segment": "Industrial",
+      "accounts": 27420,
+      "pct": 1.2,
+      "annual_gwh": 9840
+    }
+  ],
+  "service_type": [
+    {
+      "type": "Standard tariff",
+      "pct": 71.4
+    },
+    {
+      "type": "Time-of-use",
+      "pct": 19.2
+    },
+    {
+      "type": "Net-metered solar",
+      "pct": 7.9
+    },
+    {
+      "type": "Demand response enrolled",
+      "pct": 1.5
+    }
+  ],
+  "top_industrial": [
+    {
+      "account_id": "CIS-IND-2006",
+      "name": "Apache Hospital Group",
+      "industry": "Hospital system",
+      "state": "AZ",
+      "peak_demand_mw": 93,
+      "annual_gwh": 398.0,
+      "rate_class": "E-36"
+    },
+    {
+      "account_id": "CIS-IND-2012",
+      "name": "Albuquerque Brewing",
+      "industry": "Agriculture pumping",
+      "state": "NV",
+      "peak_demand_mw": 93,
+      "annual_gwh": 620.0,
+      "rate_class": "E-34"
+    },
+    {
+      "account_id": "CIS-IND-2002",
+      "name": "Mesa Aerospace",
+      "industry": "Manufacturing",
+      "state": "NV",
+      "peak_demand_mw": 92,
+      "annual_gwh": 274.0,
+      "rate_class": "E-34"
+    },
+    {
+      "account_id": "CIS-IND-2018",
+      "name": "Phoenix Hospital Network",
+      "industry": "Cold storage",
+      "state": "NV",
+      "peak_demand_mw": 91,
+      "annual_gwh": 324.0,
+      "rate_class": "E-34"
+    },
+    {
+      "account_id": "CIS-IND-2004",
+      "name": "Pinon Foods",
+      "industry": "Manufacturing",
+      "state": "NV",
+      "peak_demand_mw": 89,
+      "annual_gwh": 355.0,
+      "rate_class": "E-36"
+    },
+    {
+      "account_id": "CIS-IND-2008",
+      "name": "Verde Steel",
+      "industry": "Manufacturing",
+      "state": "NV",
+      "peak_demand_mw": 81,
+      "annual_gwh": 215.0,
+      "rate_class": "E-36"
+    },
+    {
+      "account_id": "CIS-IND-2005",
+      "name": "Sonora Cement",
+      "industry": "Agriculture pumping",
+      "state": "NV",
+      "peak_demand_mw": 79,
+      "annual_gwh": 490.0,
+      "rate_class": "E-32 L"
+    },
+    {
+      "account_id": "CIS-IND-2001",
+      "name": "Coronado Mining Co",
+      "industry": "Cold storage",
+      "state": "NM",
+      "peak_demand_mw": 75,
+      "annual_gwh": 526.0,
+      "rate_class": "E-34"
+    },
+    {
+      "account_id": "CIS-IND-2016",
+      "name": "Sangre Mining",
+      "industry": "Manufacturing",
+      "state": "NM",
+      "peak_demand_mw": 60,
+      "annual_gwh": 249.0,
+      "rate_class": "E-34"
+    },
+    {
+      "account_id": "CIS-IND-2015",
+      "name": "Henderson Aerospace",
+      "industry": "Manufacturing",
+      "state": "NV",
+      "peak_demand_mw": 57,
+      "annual_gwh": 255.0,
+      "rate_class": "E-32 L"
+    },
+    {
+      "account_id": "CIS-IND-2014",
+      "name": "Mead Logistics",
+      "industry": "Mining",
+      "state": "AZ",
+      "peak_demand_mw": 52,
+      "annual_gwh": 306.0,
+      "rate_class": "E-32 L"
+    },
+    {
+      "account_id": "CIS-IND-2003",
+      "name": "Tres Lagos Data",
+      "industry": "Semiconductor fab",
+      "state": "AZ",
+      "peak_demand_mw": 49,
+      "annual_gwh": 291.0,
+      "rate_class": "E-34"
+    },
+    {
+      "account_id": "CIS-IND-2009",
+      "name": "Phoenix Coldchain",
+      "industry": "Cold storage",
+      "state": "NV",
+      "peak_demand_mw": 48,
+      "annual_gwh": 170.0,
+      "rate_class": "E-36"
+    },
+    {
+      "account_id": "CIS-IND-2007",
+      "name": "Mojave Greenhouse",
+      "industry": "Semiconductor fab",
+      "state": "AZ",
+      "peak_demand_mw": 45,
+      "annual_gwh": 267.0,
+      "rate_class": "E-36"
+    },
+    {
+      "account_id": "CIS-IND-2011",
+      "name": "Cactus Datacenter",
+      "industry": "Mining",
+      "state": "NM",
+      "peak_demand_mw": 38,
+      "annual_gwh": 125.0,
+      "rate_class": "E-32 L"
+    },
+    {
+      "account_id": "CIS-IND-2000",
+      "name": "Saguaro Microsystems",
+      "industry": "Hospital system",
+      "state": "NV",
+      "peak_demand_mw": 26,
+      "annual_gwh": 177.0,
+      "rate_class": "E-32 L"
+    },
+    {
+      "account_id": "CIS-IND-2010",
+      "name": "Tucson Semiconductor",
+      "industry": "Manufacturing",
+      "state": "AZ",
+      "peak_demand_mw": 21,
+      "annual_gwh": 85.0,
+      "rate_class": "E-32 L"
+    },
+    {
+      "account_id": "CIS-IND-2017",
+      "name": "Pinon Cellular",
+      "industry": "Cold storage",
+      "state": "NM",
+      "peak_demand_mw": 20,
+      "annual_gwh": 124.0,
+      "rate_class": "E-36"
+    },
+    {
+      "account_id": "CIS-IND-2019",
+      "name": "Yuma Agronomy",
+      "industry": "Cold storage",
+      "state": "AZ",
+      "peak_demand_mw": 17,
+      "annual_gwh": 66.0,
+      "rate_class": "E-34"
+    },
+    {
+      "account_id": "CIS-IND-2013",
+      "name": "Las Cruces Pumping",
+      "industry": "Mining",
+      "state": "AZ",
+      "peak_demand_mw": 9,
+      "annual_gwh": 33.0,
+      "rate_class": "E-32 L"
+    }
+  ],
+  "monthly_usage_gwh": [
+    {
+      "month": "2025-09",
+      "res": 1340,
+      "com": 920,
+      "ind": 800
+    },
+    {
+      "month": "2025-10",
+      "res": 1180,
+      "com": 890,
+      "ind": 790
+    },
+    {
+      "month": "2025-11",
+      "res": 1090,
+      "com": 880,
+      "ind": 810
+    },
+    {
+      "month": "2025-12",
+      "res": 1260,
+      "com": 900,
+      "ind": 820
+    },
+    {
+      "month": "2026-01",
+      "res": 1480,
+      "com": 940,
+      "ind": 830
+    },
+    {
+      "month": "2026-02",
+      "res": 1340,
+      "com": 920,
+      "ind": 815
+    },
+    {
+      "month": "2026-03",
+      "res": 1120,
+      "com": 910,
+      "ind": 805
+    },
+    {
+      "month": "2026-04",
+      "res": 1280,
+      "com": 930,
+      "ind": 820
+    },
+    {
+      "month": "2026-05",
+      "res": 1520,
+      "com": 970,
+      "ind": 850
+    }
+  ]
+}
