@@ -64,8 +64,8 @@ export default function RenewablesPage() {
           <ResponsiveContainer width="100%" height="100%">
             <LineChart data={aggHourly} margin={{ top: 8, right: 16, bottom: 0, left: 0 }}>
               <CartesianGrid stroke="#e5e7eb" strokeDasharray="3 3" />
-              <XAxis dataKey="hour" tick={{ fontSize: 10, fontFamily: 'JetBrains Mono' }} interval={11} />
-              <YAxis tick={{ fontSize: 11, fontFamily: 'JetBrains Mono' }} />
+              <XAxis dataKey="hour" tick={{ fontSize: 10, fontFamily: 'IBM Plex Mono' }} interval={11} />
+              <YAxis tick={{ fontSize: 11, fontFamily: 'IBM Plex Mono' }} />
               <Tooltip contentStyle={{ fontSize: 12 }} />
               <Legend wrapperStyle={{ fontSize: 11 }} />
               <Line type="monotone" dataKey="Forecast" stroke="#94a3b8" strokeWidth={1.5} dot={false} strokeDasharray="3 3" />
@@ -96,8 +96,8 @@ export default function RenewablesPage() {
               <ResponsiveContainer width="100%" height="100%">
                 <LineChart data={site.hourly.map((h) => ({ hour: h.ts.slice(5, 13).replace('T', ' '), Actual: h.mw, Forecast: h.forecast_mw }))} margin={{ top: 8, right: 16, bottom: 0, left: 0 }}>
                   <CartesianGrid stroke="#e5e7eb" strokeDasharray="3 3" />
-                  <XAxis dataKey="hour" tick={{ fontSize: 10, fontFamily: 'JetBrains Mono' }} interval={11} />
-                  <YAxis tick={{ fontSize: 11, fontFamily: 'JetBrains Mono' }} />
+                  <XAxis dataKey="hour" tick={{ fontSize: 10, fontFamily: 'IBM Plex Mono' }} interval={11} />
+                  <YAxis tick={{ fontSize: 11, fontFamily: 'IBM Plex Mono' }} />
                   <Tooltip contentStyle={{ fontSize: 12 }} />
                   <Legend wrapperStyle={{ fontSize: 11 }} />
                   <Line type="monotone" dataKey="Forecast" stroke="#94a3b8" strokeWidth={1.5} dot={false} strokeDasharray="3 3" />
@@ -156,8 +156,8 @@ export default function RenewablesPage() {
             <ResponsiveContainer width="100%" height="100%">
               <BarChart data={r.curtailment_events} margin={{ top: 8, right: 16, bottom: 0, left: 0 }}>
                 <CartesianGrid stroke="#e5e7eb" strokeDasharray="3 3" />
-                <XAxis dataKey="site" tick={{ fontSize: 10, fontFamily: 'JetBrains Mono' }} />
-                <YAxis tick={{ fontSize: 11, fontFamily: 'JetBrains Mono' }} />
+                <XAxis dataKey="site" tick={{ fontSize: 10, fontFamily: 'IBM Plex Mono' }} />
+                <YAxis tick={{ fontSize: 11, fontFamily: 'IBM Plex Mono' }} />
                 <Tooltip contentStyle={{ fontSize: 12 }} />
                 <Bar dataKey="mwh" fill="#f59e0b" />
               </BarChart>

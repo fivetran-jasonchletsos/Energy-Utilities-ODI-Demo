@@ -74,8 +74,8 @@ export default function HomePage() {
               <ResponsiveContainer width="100%" height="100%">
                 <AreaChart data={g.load_curve_24h} margin={{ top: 8, right: 16, bottom: 0, left: 0 }}>
                   <CartesianGrid stroke="#e5e7eb" strokeDasharray="3 3" />
-                  <XAxis dataKey="hour" tick={{ fontSize: 11, fontFamily: 'JetBrains Mono' }} />
-                  <YAxis tick={{ fontSize: 11, fontFamily: 'JetBrains Mono' }} domain={['dataMin - 200', 'dataMax + 200']} />
+                  <XAxis dataKey="hour" tick={{ fontSize: 11, fontFamily: 'IBM Plex Mono' }} />
+                  <YAxis tick={{ fontSize: 11, fontFamily: 'IBM Plex Mono' }} domain={['dataMin - 200', 'dataMax + 200']} />
                   <Tooltip contentStyle={{ fontSize: 12 }} />
                   <Area type="monotone" dataKey="forecast" stroke="#94a3b8" fill="#94a3b8" fillOpacity={0.18} name="Forecast" />
                   <Area type="monotone" dataKey="load" stroke="#06b6d4" fill="#06b6d4" fillOpacity={0.35} name="Actual" />

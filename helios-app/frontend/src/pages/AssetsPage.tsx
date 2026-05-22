@@ -49,8 +49,8 @@ export default function AssetsPage() {
             <ResponsiveContainer width="100%" height="100%">
               <ScatterChart margin={{ top: 8, right: 16, bottom: 0, left: 0 }}>
                 <CartesianGrid stroke="#e5e7eb" strokeDasharray="3 3" />
-                <XAxis dataKey="age_years"    name="Age"    type="number" unit=" yr" tick={{ fontSize: 11, fontFamily: 'JetBrains Mono' }} />
-                <YAxis dataKey="health_score" name="Health" type="number" domain={[0, 100]} tick={{ fontSize: 11, fontFamily: 'JetBrains Mono' }} />
+                <XAxis dataKey="age_years"    name="Age"    type="number" unit=" yr" tick={{ fontSize: 11, fontFamily: 'IBM Plex Mono' }} />
+                <YAxis dataKey="health_score" name="Health" type="number" domain={[0, 100]} tick={{ fontSize: 11, fontFamily: 'IBM Plex Mono' }} />
                 <ZAxis dataKey="capacity_mva" range={[40, 240]} />
                 <Tooltip cursor={{ strokeDasharray: '3 3' }} contentStyle={{ fontSize: 12 }} />
                 {(['Critical', 'High', 'Medium', 'Low'] as const).map((p) => (

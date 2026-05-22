@@ -82,8 +82,8 @@ export default function OutagePage() {
               <ResponsiveContainer width="100%" height="100%">
                 <LineChart data={o.saidi_trend} margin={{ top: 8, right: 16, bottom: 0, left: 0 }}>
                   <CartesianGrid stroke="#e5e7eb" strokeDasharray="3 3" />
-                  <XAxis dataKey="month" tick={{ fontSize: 11, fontFamily: 'JetBrains Mono' }} />
-                  <YAxis tick={{ fontSize: 11, fontFamily: 'JetBrains Mono' }} />
+                  <XAxis dataKey="month" tick={{ fontSize: 11, fontFamily: 'IBM Plex Mono' }} />
+                  <YAxis tick={{ fontSize: 11, fontFamily: 'IBM Plex Mono' }} />
                   <Tooltip contentStyle={{ fontSize: 12 }} />
                   <Line type="monotone" dataKey="saidi" stroke="#06b6d4" strokeWidth={2} dot={{ r: 3 }} />
                 </LineChart>
@@ -141,8 +141,8 @@ export default function OutagePage() {
             <ResponsiveContainer width="100%" height="100%">
               <BarChart data={o.cause_breakdown_ytd} margin={{ top: 8, right: 16, bottom: 0, left: 0 }}>
                 <CartesianGrid stroke="#e5e7eb" strokeDasharray="3 3" />
-                <XAxis dataKey="cause" tick={{ fontSize: 11, fontFamily: 'JetBrains Mono' }} />
-                <YAxis tick={{ fontSize: 11, fontFamily: 'JetBrains Mono' }} />
+                <XAxis dataKey="cause" tick={{ fontSize: 11, fontFamily: 'IBM Plex Mono' }} />
+                <YAxis tick={{ fontSize: 11, fontFamily: 'IBM Plex Mono' }} />
                 <Tooltip contentStyle={{ fontSize: 12 }} />
                 <Bar dataKey="count" fill="#06b6d4" />
               </BarChart>

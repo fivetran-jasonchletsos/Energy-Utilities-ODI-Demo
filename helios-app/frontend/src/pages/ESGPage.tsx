@@ -57,8 +57,8 @@ export default function ESGPage() {
             <ResponsiveContainer width="100%" height="100%">
               <BarChart data={combined} margin={{ top: 8, right: 16, bottom: 0, left: 0 }}>
                 <CartesianGrid stroke="#e5e7eb" strokeDasharray="3 3" />
-                <XAxis dataKey="quarter" tick={{ fontSize: 11, fontFamily: 'JetBrains Mono' }} />
-                <YAxis tick={{ fontSize: 11, fontFamily: 'JetBrains Mono' }} />
+                <XAxis dataKey="quarter" tick={{ fontSize: 11, fontFamily: 'IBM Plex Mono' }} />
+                <YAxis tick={{ fontSize: 11, fontFamily: 'IBM Plex Mono' }} />
                 <Tooltip formatter={(v: any) => formatNumber(v)} contentStyle={{ fontSize: 12 }} />
                 <Legend wrapperStyle={{ fontSize: 11 }} />
                 <Bar dataKey="Scope1" stackId="a" fill="#1e4380" />
@@ -74,8 +74,8 @@ export default function ESGPage() {
             <ResponsiveContainer width="100%" height="100%">
               <LineChart data={e?.renewables_pct_q ?? []} margin={{ top: 8, right: 16, bottom: 0, left: 0 }}>
                 <CartesianGrid stroke="#e5e7eb" strokeDasharray="3 3" />
-                <XAxis dataKey="quarter" tick={{ fontSize: 11, fontFamily: 'JetBrains Mono' }} />
-                <YAxis tick={{ fontSize: 11, fontFamily: 'JetBrains Mono' }} unit="%" />
+                <XAxis dataKey="quarter" tick={{ fontSize: 11, fontFamily: 'IBM Plex Mono' }} />
+                <YAxis tick={{ fontSize: 11, fontFamily: 'IBM Plex Mono' }} unit="%" />
                 <Tooltip formatter={(v: any) => `${v}%`} contentStyle={{ fontSize: 12 }} />
                 <Line type="monotone" dataKey="pct" stroke="#f59e0b" strokeWidth={2.5} dot={{ r: 3 }} />
               </LineChart>
@@ -91,8 +91,8 @@ export default function ESGPage() {
             <ResponsiveContainer width="100%" height="100%">
               <LineChart data={e?.emissions_intensity_lb_per_mwh ?? []} margin={{ top: 8, right: 16, bottom: 0, left: 0 }}>
                 <CartesianGrid stroke="#e5e7eb" strokeDasharray="3 3" />
-                <XAxis dataKey="quarter" tick={{ fontSize: 11, fontFamily: 'JetBrains Mono' }} />
-                <YAxis tick={{ fontSize: 11, fontFamily: 'JetBrains Mono' }} />
+                <XAxis dataKey="quarter" tick={{ fontSize: 11, fontFamily: 'IBM Plex Mono' }} />
+                <YAxis tick={{ fontSize: 11, fontFamily: 'IBM Plex Mono' }} />
                 <Tooltip contentStyle={{ fontSize: 12 }} />
                 <Line type="monotone" dataKey="lb_per_mwh" stroke="#06b6d4" strokeWidth={2.5} dot={{ r: 3 }} />
               </LineChart>

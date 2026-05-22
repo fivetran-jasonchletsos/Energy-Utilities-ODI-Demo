@@ -4,6 +4,7 @@ import { fetchSnapshot, formatNumber } from '../api/queries';
 type Connector = {
   name: string; mechanism: string; source: string; destination: string;
   tables: number; rows_24h: number; status: string; last_sync: string; lag_minutes: number;
+  fivetran_id?: string; fivetran_url?: string;
 };
 type Layer = { layer: string; description: string; tables: number; rows: number; storage_tb: number; freshness_min: number };
 type Incident = { time: string; connector: string; severity: string; description: string; resolved: boolean };
@@ -49,16 +50,17 @@ export default function PipelinePage() {
         </div>
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
-            <thead className="bg-[var(--paper-deep)] text-[var(--ink-muted)]">
+            <thead className="bg-[var(--navy-deep)] text-[var(--cyan-bright)]">
               <tr>
-                <Th>Connector</Th><Th>Source</Th><Th>Mechanism</Th><Th>Destination</Th>
-                <Th align="right">Tables</Th><Th align="right">Rows 24h</Th><Th align="right">Lag</Th><Th>Status</Th><Th>Last sync</Th>
+                <Th>Connector</Th><Th>Fivetran ID</Th><Th>Source</Th><Th>Mechanism</Th><Th>Destination</Th>
+                <Th align="right">Tables</Th><Th align="right">Rows 24h</Th><Th align="right">Lag</Th><Th>Status</Th><Th>Last sync</Th><Th>Open</Th>
               </tr>
             </thead>
             <tbody>
               {(p?.connectors ?? []).map((c) => (
                 <tr key={c.name} className="border-t border-[var(--hairline-soft)]">
                   <Td><span className="font-semibold">{c.name}</span></Td>
+                  <Td className="mono text-[11px] text-[var(--ink-soft)]">{c.fivetran_id ?? '—'}</Td>
                   <Td className="mono text-xs">{c.source}</Td>
                   <Td><span className="layer-chip cyan">{c.mechanism}</span></Td>
                   <Td className="mono text-xs">{c.destination}</Td>
@@ -67,10 +69,41 @@ export default function PipelinePage() {
                   <Td align="right" className="mono">{c.lag_minutes}m</Td>
                   <Td><span className={`status-pill ${c.status === 'Healthy' ? 'ok' : c.status === 'Degraded' ? 'warn' : 'crit'}`}>{c.status}</span></Td>
                   <Td className="mono text-xs text-[var(--ink-soft)]">{c.last_sync.replace('T',' ').replace('Z',' UTC')}</Td>
+                  <Td>
+                    {c.fivetran_url ? (
+                      <a
+                        href={c.fivetran_url}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex items-center gap-1 mono text-[10px] uppercase tracking-wider font-bold text-[var(--cyan-dim)] hover:text-[var(--cyan)] whitespace-nowrap"
+                      >
+                        Open
+                        <svg viewBox="0 0 12 12" className="h-2.5 w-2.5" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                          <path d="M2 10L10 2M5 2h5v5" />
+                        </svg>
+                      </a>
+                    ) : '—'}
+                  </Td>
                 </tr>
               ))}
             </tbody>
           </table>
+          <div className="border-t border-[var(--hairline-soft)] px-4 py-3 bg-[var(--paper-deep)] flex items-center justify-between gap-4">
+            <span className="text-xs text-[var(--ink-soft)]">
+              {p?.connectors.length ?? 0} connectors · Fivetran-managed ingestion
+            </span>
+            <a
+              href="https://fivetran.com/dashboard/connectors"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-sm bg-[var(--navy-deep)] text-[var(--cyan-bright)] mono text-[10px] uppercase tracking-wider font-bold hover:bg-[var(--navy)] transition-colors"
+            >
+              Open in Fivetran
+              <svg viewBox="0 0 12 12" className="h-2.5 w-2.5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                <path d="M2 10L10 2M5 2h5v5" />
+              </svg>
+            </a>
+          </div>
         </div>
       </section>
 

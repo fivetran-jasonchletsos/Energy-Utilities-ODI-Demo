@@ -65,7 +65,7 @@ export default function CustomerPage() {
               <ResponsiveContainer width="100%" height="100%">
                 <BarChart data={c.service_type} layout="vertical" margin={{ top: 8, right: 16, bottom: 0, left: 60 }}>
                   <CartesianGrid stroke="#e5e7eb" strokeDasharray="3 3" />
-                  <XAxis type="number" tick={{ fontSize: 11, fontFamily: 'JetBrains Mono' }} />
+                  <XAxis type="number" tick={{ fontSize: 11, fontFamily: 'IBM Plex Mono' }} />
                   <YAxis dataKey="type" type="category" tick={{ fontSize: 11 }} width={150} />
                   <Tooltip formatter={(v: any) => `${v}%`} contentStyle={{ fontSize: 12 }} />
                   <Bar dataKey="pct" fill="#06b6d4" />
@@ -82,8 +82,8 @@ export default function CustomerPage() {
               <ResponsiveContainer width="100%" height="100%">
                 <BarChart data={c.monthly_usage_gwh} margin={{ top: 8, right: 16, bottom: 0, left: 0 }}>
                   <CartesianGrid stroke="#e5e7eb" strokeDasharray="3 3" />
-                  <XAxis dataKey="month" tick={{ fontSize: 10, fontFamily: 'JetBrains Mono' }} />
-                  <YAxis tick={{ fontSize: 11, fontFamily: 'JetBrains Mono' }} />
+                  <XAxis dataKey="month" tick={{ fontSize: 10, fontFamily: 'IBM Plex Mono' }} />
+                  <YAxis tick={{ fontSize: 11, fontFamily: 'IBM Plex Mono' }} />
                   <Tooltip contentStyle={{ fontSize: 12 }} />
                   <Legend wrapperStyle={{ fontSize: 11 }} />
                   <Bar dataKey="res" stackId="a" fill="#06b6d4" name="Residential" />

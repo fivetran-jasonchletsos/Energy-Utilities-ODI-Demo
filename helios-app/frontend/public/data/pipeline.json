@@ -3,6 +3,8 @@
     {
       "name": "SAP IS-U (CIS + billing)",
       "mechanism": "Fivetran",
+      "fivetran_id": "sap_isu_helios_prod",
+      "fivetran_url": "https://fivetran.com/dashboard/connectors/sap_isu_helios_prod",
       "source": "SAP IS-U",
       "destination": "Snowflake / Iceberg",
       "tables": 142,
@@ -14,6 +16,8 @@
     {
       "name": "OSIsoft PI System (SCADA)",
       "mechanism": "Fivetran",
+      "fivetran_id": "osisoft_pi_helios_ot",
+      "fivetran_url": "https://fivetran.com/dashboard/connectors/osisoft_pi_helios_ot",
       "source": "OSIsoft PI",
       "destination": "Snowflake / Iceberg",
       "tables": 38,
@@ -25,6 +29,8 @@
     {
       "name": "Itron AMI smart meters",
       "mechanism": "Fivetran",
+      "fivetran_id": "itron_ami_helios_meters",
+      "fivetran_url": "https://fivetran.com/dashboard/connectors/itron_ami_helios_meters",
       "source": "Itron OpenWay",
       "destination": "Snowflake / Iceberg",
       "tables": 24,
@@ -36,6 +42,8 @@
     {
       "name": "Salesforce (commercial CRM)",
       "mechanism": "Fivetran",
+      "fivetran_id": "salesforce_helios_crm",
+      "fivetran_url": "https://fivetran.com/dashboard/connectors/salesforce_helios_crm",
       "source": "Salesforce",
       "destination": "Snowflake / Iceberg",
       "tables": 86,
@@ -47,6 +55,8 @@
     {
       "name": "GIS asset locations (Esri)",
       "mechanism": "Fivetran",
+      "fivetran_id": "esri_arcgis_helios_gis",
+      "fivetran_url": "https://fivetran.com/dashboard/connectors/esri_arcgis_helios_gis",
       "source": "Esri ArcGIS",
       "destination": "Snowflake / Iceberg",
       "tables": 16,
@@ -58,6 +68,8 @@
     {
       "name": "NOAA weather + forecast",
       "mechanism": "Fivetran",
+      "fivetran_id": "noaa_ndfd_helios_wx",
+      "fivetran_url": "https://fivetran.com/dashboard/connectors/noaa_ndfd_helios_wx",
       "source": "NOAA NDFD",
       "destination": "Snowflake / Iceberg",
       "tables": 8,
@@ -69,6 +81,8 @@
     {
       "name": "Maximo work orders",
       "mechanism": "Fivetran",
+      "fivetran_id": "ibm_maximo_helios_wms",
+      "fivetran_url": "https://fivetran.com/dashboard/connectors/ibm_maximo_helios_wms",
       "source": "IBM Maximo",
       "destination": "Snowflake / Iceberg",
       "tables": 41,
