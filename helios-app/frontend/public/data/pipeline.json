@@ -3,7 +3,7 @@
     {
       "name": "SAP IS-U (CIS + billing)",
       "mechanism": "Fivetran",
-      "fivetran_id": "sap_isu_helios_prod",
+      "fivetran_id": "insanity_mortem",
       "fivetran_url": "https://fivetran.com/dashboard/connectors/sap_isu_helios_prod",
       "source": "SAP IS-U",
       "destination": "Snowflake / Iceberg",
@@ -16,7 +16,7 @@
     {
       "name": "OSIsoft PI System (SCADA)",
       "mechanism": "Fivetran",
-      "fivetran_id": "osisoft_pi_helios_ot",
+      "fivetran_id": "passage_suspected",
       "fivetran_url": "https://fivetran.com/dashboard/connectors/osisoft_pi_helios_ot",
       "source": "OSIsoft PI",
       "destination": "Snowflake / Iceberg",
@@ -29,7 +29,7 @@
     {
       "name": "Itron AMI smart meters",
       "mechanism": "Fivetran",
-      "fivetran_id": "itron_ami_helios_meters",
+      "fivetran_id": "carload_dribble",
       "fivetran_url": "https://fivetran.com/dashboard/connectors/itron_ami_helios_meters",
       "source": "Itron OpenWay",
       "destination": "Snowflake / Iceberg",
@@ -42,7 +42,7 @@
     {
       "name": "Salesforce (commercial CRM)",
       "mechanism": "Fivetran",
-      "fivetran_id": "salesforce_helios_crm",
+      "fivetran_id": "repent_custom",
       "fivetran_url": "https://fivetran.com/dashboard/connectors/salesforce_helios_crm",
       "source": "Salesforce",
       "destination": "Snowflake / Iceberg",
@@ -55,7 +55,7 @@
     {
       "name": "GIS asset locations (Esri)",
       "mechanism": "Fivetran",
-      "fivetran_id": "esri_arcgis_helios_gis",
+      "fivetran_id": "mucous_bequeath",
       "fivetran_url": "https://fivetran.com/dashboard/connectors/esri_arcgis_helios_gis",
       "source": "Esri ArcGIS",
       "destination": "Snowflake / Iceberg",
@@ -68,7 +68,7 @@
     {
       "name": "NOAA weather + forecast",
       "mechanism": "Fivetran",
-      "fivetran_id": "noaa_ndfd_helios_wx",
+      "fivetran_id": "bog_brighter",
       "fivetran_url": "https://fivetran.com/dashboard/connectors/noaa_ndfd_helios_wx",
       "source": "NOAA NDFD",
       "destination": "Snowflake / Iceberg",
@@ -81,7 +81,7 @@
     {
       "name": "Maximo work orders",
       "mechanism": "Fivetran",
-      "fivetran_id": "ibm_maximo_helios_wms",
+      "fivetran_id": "chat_substitute",
       "fivetran_url": "https://fivetran.com/dashboard/connectors/ibm_maximo_helios_wms",
       "source": "IBM Maximo",
       "destination": "Snowflake / Iceberg",
