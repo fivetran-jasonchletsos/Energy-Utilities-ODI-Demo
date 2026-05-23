@@ -10,6 +10,7 @@ const NAV: [string, string][] = [
   ['/esg', 'ESG'],
   ['/architecture', 'Architecture'],
   ['/pipeline', 'Pipeline'],
+  ['/dbt-wizard', 'dbt-wizard'],
   ['/policy', 'Policy'],
   ['/about', 'About'],
 ];
@@ -154,7 +155,20 @@ export default function Layout() {
         <div className="border-t border-white/10">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-3 text-[11px] text-white/50 flex flex-col sm:flex-row gap-1 sm:items-center sm:justify-between">
             <div>© 2026 Helios Grid ODI Demo, Fivetran Open Data Infrastructure</div>
-            <div className="mono">SCADA snapshot 2026-05-21 06:00 MST</div>
+            <div className="flex items-center gap-3">
+              <span className="mono">SCADA snapshot 2026-05-21 06:00 MST</span>
+              <a
+                href="/Helios-Energy-3min-Demo-Runbook.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1 px-2 py-0.5 rounded-sm border border-white/20 text-white/60 hover:text-white hover:border-white/40 transition-colors font-mono text-[10px] uppercase tracking-wider font-semibold"
+              >
+                3-min runbook
+                <svg viewBox="0 0 12 12" className="h-2.5 w-2.5" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                  <path d="M2 10L10 2M5 2h5v5" />
+                </svg>
+              </a>
+            </div>
           </div>
         </div>
       </footer>

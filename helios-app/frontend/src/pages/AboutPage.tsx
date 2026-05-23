@@ -155,7 +155,7 @@ const STACK = [
   { layer: 'Transform', name: 'dbt',                                  note: '184 models across bronze, silver, gold, platinum. dbt Cloud orchestrates. Source-freshness fires on connector lag.' },
   { layer: 'Query',     name: 'Snowflake (primary)',                  note: 'Operational marts queried by ops portal and forecasting service.' },
   { layer: 'Query',     name: 'AWS Athena (regulatory)',              note: 'Long-horizon ESG and PUC queries against the same Iceberg files. No data copy.' },
-  { layer: 'Agents',    name: 'Cortex + custom outage agent',         note: 'Read the platinum agent_* tables. Same governance as the human portal.' },
+  { layer: 'Agents',    name: 'Custom outage agent + dbt-wizard',      note: 'Read the platinum agent_* tables. Same governance as the human portal.' },
   { layer: 'Frontend',  name: 'React 19, Vite, Tailwind, Recharts',   note: 'Static SPA on GitHub Pages. Reads JSON snapshots produced by the dbt gold layer.' },
 ];
 

@@ -12,6 +12,10 @@ import CustomerPage from './pages/CustomerPage';
 import ESGPage from './pages/ESGPage';
 import PolicyPage from './pages/PolicyPage';
 import NotFoundPage from './pages/NotFoundPage';
+import DbtWizardPage from './pages/DbtWizardPage';
+import GridScenarioPage from './pages/GridScenarioPage';
+import WizardLivePage from './pages/WizardLivePage';
+import GridOutcomePage from './pages/GridOutcomePage';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -35,6 +39,10 @@ export default function App() {
             <Route path="/pipeline" element={<PipelinePage />} />
             <Route path="/policy" element={<PolicyPage />} />
             <Route path="/about" element={<AboutPage />} />
+            <Route path="/dbt-wizard" element={<DbtWizardPage />} />
+            <Route path="/grid-scenario" element={<GridScenarioPage />} />
+            <Route path="/wizard-live" element={<WizardLivePage />} />
+            <Route path="/grid-outcome" element={<GridOutcomePage />} />
             <Route path="*" element={<NotFoundPage />} />
           </Route>
         </Routes>

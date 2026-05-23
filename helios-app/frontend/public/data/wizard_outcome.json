@@ -1,0 +1,104 @@
+{
+  "materialized_model": "gold.fct_outage_by_substation_tier_quarter",
+  "row_count": 312,
+  "tests_passed": 9,
+  "tests_written": "7 column-level + 1 combination + 1 accepted-values on tier",
+  "build_seconds": 90,
+  "before": {
+    "nodes": [
+      { "id": "fct_outage_event", "name": "gold.fct_outage_event",  "layer": "gold" },
+      { "id": "dim_substation",   "name": "gold.dim_substation",    "layer": "gold" },
+      { "id": "fct_ied_event",    "name": "gold.fct_ied_event",     "layer": "gold" },
+      { "id": "dim_territory",    "name": "gold.dim_territory",     "layer": "gold" },
+      { "id": "gap",              "name": "gold.fct_outage_by_substation_tier_quarter", "layer": "gap", "built": false }
+    ],
+    "edges": [
+      { "from": "fct_outage_event", "to": "gap" },
+      { "from": "dim_substation",   "to": "gap" },
+      { "from": "fct_ied_event",    "to": "gap" },
+      { "from": "dim_territory",    "to": "gap" }
+    ]
+  },
+  "after": {
+    "nodes": [
+      { "id": "fct_outage_event", "name": "gold.fct_outage_event",  "layer": "gold" },
+      { "id": "dim_substation",   "name": "gold.dim_substation",    "layer": "gold" },
+      { "id": "fct_ied_event",    "name": "gold.fct_ied_event",     "layer": "gold" },
+      { "id": "dim_territory",    "name": "gold.dim_territory",     "layer": "gold" },
+      { "id": "new_gold",         "name": "gold.fct_outage_by_substation_tier_quarter", "layer": "gold", "built": true, "new": true },
+      { "id": "puc_report",       "name": "PUC Reliability Report",       "layer": "consumer" },
+      { "id": "grid_dash",        "name": "Grid Operations Dashboard",     "layer": "consumer" }
+    ],
+    "edges": [
+      { "from": "fct_outage_event", "to": "new_gold" },
+      { "from": "dim_substation",   "to": "new_gold" },
+      { "from": "fct_ied_event",    "to": "new_gold" },
+      { "from": "dim_territory",    "to": "new_gold" },
+      { "from": "new_gold",         "to": "puc_report" },
+      { "from": "new_gold",         "to": "grid_dash" }
+    ]
+  },
+  "root_cause": {
+    "headline": "11 West-tier-2 substations share IED firmware v4.1.2 which triggers a false trip on phase imbalance over 4.5% — a threshold tuned for East seasonal load, not West",
+    "detail": "Every West tier-2 substation carrying firmware v4.1.2 shows avg phase imbalance of 5.1% under normal West load conditions — above the 4.5% trip threshold. East substations run v3.9.4 and show avg phase imbalance of 3.8%, safely below the same threshold. The threshold was calibrated on East seasonal load profiles during the rollout. Adjusting the firmware threshold to 6.0% for West substations eliminates the false trips without replacing hardware.",
+    "affected_cohort": "West service territory, tier-2 substations on IED firmware v4.1.2",
+    "fallout_count": 11,
+    "total_reviewed": 14
+  },
+  "without_wizard": {
+    "label": "Without dbt-wizard",
+    "summary": "Question enters the analytics backlog. PUC filing window closes without the answer.",
+    "metrics": [
+      { "label": "Time to model",           "value": "3 to 5 days" },
+      { "label": "Engineer hours",           "value": "8 to 14h" },
+      { "label": "Tests written",            "value": "ad-hoc" },
+      { "label": "Lineage entries",          "value": "manual" },
+      { "label": "Documentation",            "value": "PR-time only" },
+      { "label": "PUC filing status",        "value": "no data" }
+    ],
+    "narrative": [
+      "VP files the request. It enters the analytics backlog at priority A.",
+      "Data engineer scopes the work Monday morning — days after the PUC window closes.",
+      "Engineer writes SQL from scratch, joining four gold marts by hand.",
+      "Tests, YAML, and contract get bolted on at PR time. Sometimes.",
+      "Grid ops team cannot isolate root cause before the PUC filing deadline.",
+      "PUC submission carries a note: reliability data pending. $2.7M penalty risk remains."
+    ]
+  },
+  "with_wizard": {
+    "label": "With dbt-wizard",
+    "summary": "Four sub-agents surface the upstreams, author the SQL, write the tests, and materialize the asset in 90 seconds.",
+    "metrics": [
+      { "label": "Time to model",           "value": "90 seconds" },
+      { "label": "Engineer hours",           "value": "0.0h authored" },
+      { "label": "Tests written",            "value": "7 column + 1 combination + 1 accepted-values" },
+      { "label": "Lineage entries",          "value": "auto, 4 upstream" },
+      { "label": "Documentation",            "value": "in YAML on materialize" },
+      { "label": "PUC filing status",        "value": "root cause in hand" }
+    ],
+    "narrative": [
+      "Explorer runs status and search. Returns the four gold upstream candidates.",
+      "Summary runs describe and lineage. Confirms join path and names the new grain.",
+      "Worker runs dbt_show on a Q1-2026 slice. Validates the proposed grain.",
+      "Worker authors fct_outage_by_substation_tier_quarter.sql with CTEs and final SELECT.",
+      "Verification writes the YAML — description, schema contract, 9 tests, ownership.",
+      "Worker materializes the table to Iceberg. Verification confirms downstream lineage.",
+      "VP presents root-cause finding to PUC 15.5 hours ahead of the filing deadline."
+    ]
+  },
+  "governance": [
+    { "label": "Tests written",            "value": "7 column-level + 1 combination + 1 accepted-values" },
+    { "label": "Schema contract",          "value": "enforced on materialize" },
+    { "label": "Lineage upstreams",        "value": "4 declared, 4 validated" },
+    { "label": "Documentation",            "value": "auto-written in YAML" },
+    { "label": "Ownership",               "value": "grid_operations_analytics" },
+    { "label": "Tag",                      "value": "ai_built · puc_reporting · grid_ops" },
+    { "label": "Iceberg table format",     "value": "v2 · Parquet · ZSTD" },
+    { "label": "Open Catalog registration","value": "complete" }
+  ],
+  "hero": {
+    "label": "Root cause identified 15.5 hours before the PUC filing window closes",
+    "value": "90 seconds",
+    "note": "From VP question to materialized Iceberg gold table — versioned, tested, documented, lineage-tracked. The grid operations team now knows the IED firmware threshold was calibrated on East seasonal load. The fix is a threshold adjustment on 11 substations, not a hardware replacement. $2.7M PUC penalty exposure resolved."
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "company": "Helios Energy",
+  "request_id": "BLD-2026-05-23-0011",
+  "requested_by": "Marcus Webb, VP of Grid Operations",
+  "requested_at": "2026-05-23T08:14:00-07:00",
+  "timezone_label": "Friday 08:14 MST",
+  "question": "Why are tier-2 substations in the West service territory showing 38% more momentary-interruption events vs East, after we rolled out the new IEDs?",
+  "metric_label": "Momentary interruptions by substation tier and service territory, quarterly",
+  "metric_code": "gold.fct_outage_by_substation_tier_quarter",
+  "sop_meeting_at": "2026-05-24T00:14:00-07:00",
+  "sop_meeting_label": "Saturday 00:14 MST · PUC Filing Window",
+  "target_schema": "gold",
+  "target_model": "fct_outage_by_substation_tier_quarter",
+  "target_grain": "one row per (substation_id, tier, service_territory, quarter)",
+  "prior_crisis_id": "INC-2026-05-17-0044",
+  "territory": "West service territory",
+  "upstream_models": [
+    {
+      "model": "gold.fct_outage_event",
+      "layer": "gold",
+      "grain": "outage_event_id",
+      "description": "Outage events from SCADA and AMI. Includes event_type, duration_sec, substation_id, event_timestamp, and momentary_flag (events under 5 minutes per IEEE 1366)."
+    },
+    {
+      "model": "gold.dim_substation",
+      "layer": "gold",
+      "grain": "substation_id",
+      "description": "Substation master with tier classification (1, 2, 3), service territory (East, West, North), IED firmware version, install date, and feeder count."
+    },
+    {
+      "model": "gold.fct_ied_event",
+      "layer": "gold",
+      "grain": "ied_event_id",
+      "description": "IED device events from the protection relay log. Includes trip_type, phase_imbalance_pct, firmware_version, and substation linkage. Captures false-trip signatures on phase imbalance."
+    },
+    {
+      "model": "gold.dim_territory",
+      "layer": "gold",
+      "grain": "territory_id",
+      "description": "Service territory master with seasonal load profiles, peak MW by quarter, and regulatory jurisdiction for PUC reporting segmentation."
+    }
+  ],
+  "manual_time_days": "3 to 5 days",
+  "build_room_seconds": 90
+}
