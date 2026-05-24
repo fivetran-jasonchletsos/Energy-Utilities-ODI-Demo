@@ -10,7 +10,9 @@ const NAV: [string, string][] = [
   ['/esg', 'ESG'],
   ['/architecture', 'Architecture'],
   ['/pipeline', 'Pipeline'],
-  ['/dbt-wizard', 'dbt-wizard'],
+  ['/grid-scenario', 'Scenario'],
+  ['/wizard-live', 'Live'],
+  ['/grid-outcome', 'Outcome'],
   ['/policy', 'Policy'],
   ['/about', 'About'],
 ];
