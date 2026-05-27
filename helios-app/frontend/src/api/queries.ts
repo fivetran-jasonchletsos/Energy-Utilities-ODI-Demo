@@ -1,4 +1,4 @@
-// Read static JSON snapshots produced by the dbt gold layer.
+// Read Iceberg gold layer landed by Fivetran by the dbt gold layer.
 // In a real deployment these are refreshed nightly from Snowflake.
 
 const BASE = import.meta.env.BASE_URL.replace(/\/$/, '');
@@ -10,7 +10,7 @@ export async function fetchSnapshot<T>(file: string): Promise<T> {
   if (cache.has(key)) return cache.get(key) as Promise<T>;
   const p = (async () => {
     const url = `${BASE}/data/${file}`;
-    const res = await fetch(url, { cache: 'no-cache' });
+    const res = await fetch(url);
     if (!res.ok) throw new Error(`Failed to fetch ${url}: ${res.status}`);
     return (await res.json()) as T;
   })();

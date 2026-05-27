@@ -277,7 +277,7 @@ export default function Layout() {
           <div>
             <div className="eyebrow-light mb-2">Data Pipeline</div>
             <p className="leading-relaxed text-white/70">
-              SAP IS-U, OSIsoft PI, Itron AMI, Salesforce, GIS, NOAA via Fivetran into Snowflake plus Apache Iceberg, modeled by dbt (bronze, silver, gold, platinum).
+              SAP IS-U, OSIsoft PI, Itron AMI, Salesforce, GIS, NOAA → Fivetran → Iceberg on S3 → dbt → Great Expectations → Snowflake / Athena / Trino → Cortex.
             </p>
           </div>
           <div>
