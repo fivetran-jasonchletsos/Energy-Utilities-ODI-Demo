@@ -79,8 +79,9 @@ export default function GridOutcomePage() {
 
   useEffect(() => {
     fetch((import.meta.env.BASE_URL?.replace(/\/$/, '') || '') + '/data/wizard_outcome.json')
-      .then(r => r.json())
-      .then(setO);
+      .then(r => { if (!r.ok) throw new Error(`HTTP ${r.status}`); return r.json(); })
+      .then(setO)
+      .catch(() => {});
   }, []);
 
   if (!o) {
