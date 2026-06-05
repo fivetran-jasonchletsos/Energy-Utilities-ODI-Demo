@@ -20,7 +20,7 @@ with a ~30% renewables mix.
 ## Architecture
 
 Sources land through Fivetran into a customer-owned Iceberg lake. dbt builds the bronze, silver,
-gold, and platinum layers. Snowflake, Athena, Spark, and Cortex agents read the same files.
+gold, and platinum layers. Snowflake, Athena, Spark, and dbt-wizard run-time agents read the same files.
 
 - **Sources** — SAP IS-U (CIS, billing), OSIsoft PI System (SCADA historian), Itron OpenWay (AMI),
   Salesforce (commercial CRM), Esri ArcGIS (asset locations), NOAA NDFD (forecasts), IBM Maximo

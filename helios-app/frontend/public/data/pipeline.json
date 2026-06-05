@@ -1,6 +1,32 @@
 {
   "connectors": [
     {
+      "name": "CIS Billing (SQL Server)",
+      "mechanism": "Fivetran",
+      "fivetran_id": "admire_jump",
+      "fivetran_url": "https://fivetran.com/dashboard/connectors/admire_jump",
+      "source": "sql_server",
+      "destination": "Snowflake / Iceberg",
+      "tables": 142,
+      "rows_24h": 4820000,
+      "status": "ok",
+      "last_sync": "2026-05-24T06:00:00Z",
+      "lag_minutes": 18
+    },
+    {
+      "name": "Work Management (Oracle)",
+      "mechanism": "Fivetran",
+      "fivetran_id": "cite_cotton",
+      "fivetran_url": "https://fivetran.com/dashboard/connectors/cite_cotton",
+      "source": "oracle",
+      "destination": "Snowflake / Iceberg",
+      "tables": 142,
+      "rows_24h": 4820000,
+      "status": "ok",
+      "last_sync": "2026-05-24T06:00:00Z",
+      "lag_minutes": 18
+    },
+    {
       "name": "SAP IS-U (CIS + billing)",
       "mechanism": "Fivetran",
       "fivetran_id": "insanity_mortem",

@@ -277,7 +277,7 @@ export default function Layout() {
           <div>
             <div className="eyebrow-light mb-2">Data Pipeline</div>
             <p className="leading-relaxed text-white/70">
-              SAP IS-U, OSIsoft PI, Itron AMI, Salesforce, GIS, NOAA → Fivetran → Iceberg on S3 → dbt → Great Expectations → Snowflake / Athena / Trino → Cortex.
+              SAP IS-U, OSIsoft PI, Itron AMI, Salesforce, GIS, NOAA → Fivetran → Iceberg on S3 → dbt → Great Expectations → Snowflake / Athena / Trino → dbt-wizard run-time agents.
             </p>
           </div>
           <div>

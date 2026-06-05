@@ -82,7 +82,7 @@ const ENGINES: QueryEngine[] = [
   {
     name: 'Snowflake',
     status: 'active',
-    description: 'Primary engine for the gold layer. Reads Iceberg externals through Polaris catalog; auto-suspends between queries. Where the ops portal, the load-forecast estimator, and Cortex Analyst all land.',
+    description: 'Primary engine for the gold layer. Reads Iceberg externals through Polaris catalog; auto-suspends between queries. Where the ops portal, the load-forecast estimator, and the dbt-wizard run-time agents all land. Humans and agents read the same gold layer.',
     sample_query: `SELECT
   f.feeder_id, f.region,
   s.peak_mw_24h, s.avg_voltage,
