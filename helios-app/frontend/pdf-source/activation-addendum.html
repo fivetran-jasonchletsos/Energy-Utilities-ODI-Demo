@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  @page { size: 612pt 792pt; margin: 0; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; width: 612pt; height: 792pt; padding: 40pt 44pt;
+    font-family: -apple-system, "Helvetica Neue", Arial, sans-serif;
+    color: #1a1a1a; background: #ffffff;
+  }
+  .eyebrow {
+    font-size: 9pt; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.14em; color: #0e7490; margin-bottom: 4pt;
+  }
+  h1 { font-size: 20pt; margin: 0 0 6pt; font-weight: 700; }
+  .sub { font-size: 10.5pt; color: #4b5563; margin: 0 0 18pt; line-height: 1.4; }
+  .tiles { display: flex; gap: 10pt; margin-bottom: 20pt; }
+  .tile {
+    flex: 1; border: 1pt solid #d8d6c8; border-radius: 3pt; padding: 10pt 12pt;
+  }
+  .tile .label { font-size: 8pt; text-transform: uppercase; letter-spacing: 0.1em; color: #6b7280; }
+  .tile .value { font-size: 15pt; font-weight: 700; margin-top: 3pt; color: #0e7490; }
+  .tile .note { font-size: 8.5pt; color: #6b7280; margin-top: 3pt; }
+  table.beats { width: 100%; border-collapse: collapse; font-size: 9.5pt; }
+  table.beats th {
+    text-align: left; font-size: 8pt; text-transform: uppercase; letter-spacing: 0.1em;
+    color: #6b7280; border-bottom: 1pt solid #d8d6c8; padding: 6pt 8pt;
+  }
+  table.beats td { padding: 8pt; border-bottom: 0.5pt solid #e8e6db; vertical-align: top; line-height: 1.4; }
+  table.beats tr:last-child td { border-bottom: none; }
+  .say { color: #1a1a1a; }
+  .show { color: #0e7490; font-weight: 600; }
+  .footnote { margin-top: 16pt; font-size: 8pt; color: #9ca3af; line-height: 1.5; }
+</style>
+</head>
+<body>
+  <div class="eyebrow">Activations · NewCo</div>
+  <h1>The gold layer gets acted on, not just queried</h1>
+  <p class="sub">
+    Activations is the fourth native NewCo stage, right after Transformations. The instant
+    gold.fct_vegetation_risk flags a feeder segment where risk_score crosses 85, three or more
+    recloser TRIP/RECLOSE events landed in the trailing 90 days, and those trips correlate with
+    wind gusts above 35 mph on a narrow conductor-clearance profile, Activations writes a
+    prioritized work order straight into IBM Maximo &mdash; no analyst export, no manual re-entry,
+    no separate reverse-ETL tool.
+  </p>
+
+  <div class="tiles">
+    <div class="tile"><div class="label">Trigger</div><div class="value">risk_score &ge; 85</div><div class="note">3+ recloser trips/90d, wind-correlated</div></div>
+    <div class="tile"><div class="label">Destination</div><div class="value">Maximo</div><div class="note">prioritized Work Order, WOPRIORITY 1</div></div>
+    <div class="tile"><div class="label">Hand-off time</div><div class="value">6 days &rarr; &lt;5 min</div><div class="note">18 feeder segments, this run</div></div>
+  </div>
+
+  <table class="beats">
+    <thead><tr><th style="width:45%">What you say</th><th>What you show</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="say">"The dbt Wizard just materialized gold.fct_vegetation_risk: eighteen feeder segments where recloser trips correlate with wind gusts above 35 miles per hour on a specific conductor-clearance profile. The instant risk_score crosses 85, that's an Activations trigger, not a dashboard tile someone has to notice."</td>
+        <td class="show">Cut to the Activations tab right after the Wizard build. Show the gold.fct_vegetation_risk row crossing risk_score 85 on screen.</td>
+      </tr>
+      <tr>
+        <td class="say">"Activations syncs feeder_segment_id, risk_score, gis_location_code, and recloser_trip_count_90d straight into Maximo as a scoped, prioritized work order: Vegetation Management, priority one, this crew zone. No analyst exports a spreadsheet. Nobody re-keys eighteen rows into the work-management system by hand."</td>
+        <td class="show">Architecture page &rarr; Activations panel &rarr; /activations-live: Segment Definition &rarr; Field Mapping &rarr; API Push.</td>
+      </tr>
+      <tr>
+        <td class="say">"That hand-off takes six days today. Activations does it in under five minutes, right where this belongs in the flow: Connections, Destinations, Transformations, Activations."</td>
+        <td class="show">/activations-live &rarr; Destination Confirmation table, work order number and status OPEN landing on screen within seconds.</td>
+      </tr>
+      <tr>
+        <td class="say">"Watch the work order number populate on screen. That's a governed gold-layer row sitting in a foreman's queue before the next storm front moves in."</td>
+        <td class="show">Before/After panel &rarr; Reverse-ETL hop row: manual export &amp; re-key replaced by NewCo Activations, native.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="footnote">
+    18 flagged feeder segments become open, prioritized Maximo work orders in under 5 minutes of the model run,
+    versus a 6-day manual export-and-re-key hand-off today. That head start before storm season lands crews on
+    the highest-risk vegetation/clearance segments early, avoiding an estimated $2.3M/year in repeat
+    wind-driven outage SAIDI penalty exposure and emergency truck rolls across the AZ/NM/NV territory.
+    Synthetic data &mdash; for ODI architecture demonstration only.
+  </div>
+</body>
+</html>

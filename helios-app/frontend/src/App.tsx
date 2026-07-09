@@ -16,6 +16,7 @@ import DbtWizardPage from './pages/DbtWizardPage';
 import GridScenarioPage from './pages/GridScenarioPage';
 import WizardLivePage from './pages/WizardLivePage';
 import GridOutcomePage from './pages/GridOutcomePage';
+import ActivationLivePage from './pages/ActivationLivePage';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -43,6 +44,7 @@ export default function App() {
             <Route path="/grid-scenario" element={<GridScenarioPage />} />
             <Route path="/wizard-live" element={<WizardLivePage />} />
             <Route path="/grid-outcome" element={<GridOutcomePage />} />
+            <Route path="/activations-live" element={<ActivationLivePage />} />
             <Route path="*" element={<NotFoundPage />} />
           </Route>
         </Routes>

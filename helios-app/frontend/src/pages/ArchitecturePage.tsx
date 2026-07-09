@@ -6,7 +6,9 @@
 // API call during recordings.
 
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { AliveMedallion, type SourceNode, type EngineNode } from '../components/AliveMedallion';
+import ProductStageRail from '../components/ProductStageRail';
 
 const UTIL_SOURCES: SourceNode[] = [
   { id: 'cis',    label: 'CIS Billing',         sub: 'SQL Server log-CDC',    logo: 'sqlserver', freshness: '51s lag',  status: 'healthy', pipelineUrl: 'https://fivetran.com/dashboard/connectors/admire_jump' },
@@ -199,6 +201,8 @@ export default function ArchitecturePage() {
           From CIS, Maximo, SCADA, and NERC filings to one governed gold layer
         </h2>
 
+        <ProductStageRail accent="#06b6d4" />
+
         <AliveMedallion
           sources={UTIL_SOURCES}
           bronze={{ ...layerStats('bronze'), trend: [180, 195, 210, 222, 240, 255, 270] }}
@@ -377,6 +381,9 @@ export default function ArchitecturePage() {
           <span className="uppercase tracking-wider font-semibold">dbt build · merged into Fivetran</span>
         </div>
       </section>
+
+      {/* ── Activations — NewCo native reverse-ETL, right after Transformations ── */}
+      <ActivationsPanel />
 
       <GreatExpectationsPanel />
 
@@ -840,6 +847,72 @@ expectations:
 }
 
 // =============================================================================
+// ActivationsPanel — NewCo Activations, the native reverse-ETL stage that sits
+// directly after Transformations. TRIGGER / DESTINATION / OUTCOME below are
+// vertical-specific to Helios Grid's vegetation-risk → Maximo work order flow.
+// =============================================================================
+function ActivationsPanel() {
+  // TRIGGER — the gold-layer condition that fires the sync
+  const TRIGGER = 'gold.fct_vegetation_risk flags a feeder segment where risk_score is at or above 85, three or more recloser TRIP/RECLOSE events landed in the trailing 90 days, and those trips correlate with wind gusts above 35 mph on a narrow conductor-clearance profile — computed nightly from SCADA breaker events, GIS span geometry, and NOAA wind data (risk_score >= 85 AND recloser_trip_count_90d >= 3 AND wind_correlated_trip_flag = true)';
+  // DESTINATION — the downstream system NewCo Activations pushes into
+  const DESTINATION = 'IBM Maximo Application Suite · prioritized Work Order';
+  // OUTCOME — the business payoff the SE narrates
+  const OUTCOME = '18 flagged feeder segments become open, prioritized Maximo work orders in under 5 minutes of the model run, versus a 6-day manual export-and-re-key hand-off today — landing crews on the highest-risk vegetation/clearance segments ahead of storm season and avoiding an estimated $2.3M/year in repeat wind-driven outage SAIDI penalty exposure and emergency truck rolls across the AZ/NM/NV territory.';
+
+  return (
+    <section className="mb-8 ops-card overflow-hidden" style={cardStyle}>
+      <header className="ops-card-header flex items-start justify-between gap-4" style={cardHeaderStyle}>
+        <div>
+          <div className="eyebrow" style={{ color: '#0e7490' }}>Activations · NewCo</div>
+          <h2 className="text-xl font-semibold text-[var(--ink-strong)] mt-0.5">
+            The gold layer doesn&rsquo;t just get queried. It gets acted on.
+          </h2>
+          <p className="text-sm text-[var(--ink-muted)] mt-1 max-w-3xl">
+            Activations is the fourth native stage in NewCo, immediately after Transformations. It
+            reads straight from the same Iceberg gold tables dbt just built and syncs the result to
+            Maximo &mdash; the same work-management system Helios Grid already reads work orders and
+            crew assignments from &mdash; no separate reverse-ETL vendor, no second copy of the data,
+            no second connector to maintain.
+          </p>
+        </div>
+        <div className="inline-flex items-center gap-1.5 rounded-sm px-2.5 py-1.5 text-[10px] font-bold uppercase tracking-wider text-white shrink-0" style={{ background: '#0e7490' }}>
+          Activations
+        </div>
+      </header>
+
+      <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-[var(--hairline-soft)]">
+        <div className="p-5">
+          <div className="text-[10px] uppercase tracking-[0.16em] text-[var(--ink-soft)] font-semibold mb-2">Trigger · gold layer</div>
+          <p className="text-sm text-[var(--ink)] leading-relaxed">{TRIGGER}</p>
+        </div>
+        <div className="p-5">
+          <div className="text-[10px] uppercase tracking-[0.16em] text-[var(--ink-soft)] font-semibold mb-2">Destination</div>
+          <p className="text-sm text-[var(--ink)] leading-relaxed font-mono">{DESTINATION}</p>
+          <ul className="mt-3 space-y-1 text-[11px] text-[var(--ink-muted)] font-mono">
+            <li>feeder_segment_id &rarr; ASSETNUM</li>
+            <li>risk_score &rarr; WOPRIORITY (bucketed 1&ndash;5)</li>
+            <li>gis_location_code &rarr; LOCATION</li>
+            <li>recloser_trip_count_90d &rarr; long description</li>
+            <li>crew_zone &rarr; CREW</li>
+          </ul>
+        </div>
+        <div className="p-5">
+          <div className="text-[10px] uppercase tracking-[0.16em] text-[var(--ink-soft)] font-semibold mb-2">Outcome</div>
+          <p className="text-sm text-[var(--ink)] leading-relaxed">{OUTCOME}</p>
+        </div>
+      </div>
+
+      <div className="px-5 py-3 border-t border-[var(--hairline-soft)] flex items-center justify-between text-[11px] text-[var(--ink-soft)]" style={{ background: 'var(--paper-deep)' }}>
+        <span>Connections &rarr; Destinations &rarr; Transformations &rarr; <strong style={{ color: '#0e7490' }}>Activations</strong> &middot; one platform, one lineage graph</span>
+        <Link to="/activations-live" className="uppercase tracking-wider font-semibold hover:underline" style={{ color: '#0e7490' }}>
+          Watch it sync &rarr;
+        </Link>
+      </div>
+    </section>
+  );
+}
+
+// =============================================================================
 // BeforeAfterPanel
 // =============================================================================
 function BeforeAfterPanel() {
@@ -858,6 +931,12 @@ function BeforeAfterPanel() {
           <div><div className="text-[var(--ink-soft)] text-xs">Daily run-rate</div><div className="text-2xl font-semibold text-[var(--ink-strong)]">$28.10</div></div>
           <div><div className="text-[var(--ink-soft)] text-xs">Schema change</div><div className="text-lg font-semibold text-[var(--ink-strong)]">9-min lock</div></div>
         </div>
+        <div className="mt-3 pt-3 border-t border-[var(--hairline-soft)]">
+          <div className="text-[var(--ink-soft)] text-xs">Vegetation-risk hand-off</div>
+          <div className="text-lg font-semibold text-[var(--ink-strong)]">
+            Manual export &amp; re-key <span className="text-xs font-normal text-[var(--ink-soft)]">(6-day analyst hand-off into Maximo)</span>
+          </div>
+        </div>
       </div>
       <div className="ops-card p-6 border-l-4" style={{ ...cardStyle, borderLeftColor: '#06b6d4' }}>
         <div className="eyebrow" style={{ color: '#0e7490' }}>After · Open Data Infrastructure</div>
@@ -866,12 +945,19 @@ function BeforeAfterPanel() {
        → dbt → Iceberg silver
        → dbt → Iceberg gold
        ↳ Snowflake · Athena · DuckDB · Trino · Spark
-         (all reading the same bytes, no copies)`}</pre>
+         (all reading the same bytes, no copies)
+       → NewCo Activations (native) → Maximo`}</pre>
         <div className="mt-4 grid grid-cols-2 gap-3 text-sm">
           <div><div className="text-[var(--ink-soft)] text-xs">Copies of the data</div><div className="text-2xl font-semibold" style={{ color: '#06b6d4' }}>1</div></div>
           <div><div className="text-[var(--ink-soft)] text-xs">Avg end-to-end latency</div><div className="text-2xl font-semibold" style={{ color: '#06b6d4' }}>5 min</div></div>
           <div><div className="text-[var(--ink-soft)] text-xs">Daily run-rate</div><div className="text-2xl font-semibold" style={{ color: '#06b6d4' }}>$8.26</div></div>
           <div><div className="text-[var(--ink-soft)] text-xs">Schema change</div><div className="text-lg font-semibold" style={{ color: '#06b6d4' }}>milliseconds</div></div>
+        </div>
+        <div className="mt-3 pt-3 border-t border-[var(--hairline-soft)]">
+          <div className="text-[var(--ink-soft)] text-xs">Reverse-ETL hop</div>
+          <div className="text-lg font-semibold" style={{ color: '#06b6d4' }}>
+            NewCo Activations <span className="text-xs font-normal text-[var(--ink-soft)]">(native, zero extra copies, writes into Maximo)</span>
+          </div>
         </div>
       </div>
     </section>
